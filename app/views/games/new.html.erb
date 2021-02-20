@@ -1,0 +1,17 @@
+<h1> New game </h1>
+
+<h2>Les critères :</h2>
+<ul>
+  type <br>
+  année <br>
+  genre <br>
+  director <br>
+  language <br>
+  language_subtitle <br>
+  country <br>
+  vote_average <br>
+</ul>
+<%= simple_form_for @game do |f| %>
+  <%= f.input :year, label: "year" %>
+  <%= f.button :submit %>
+<% end %>
