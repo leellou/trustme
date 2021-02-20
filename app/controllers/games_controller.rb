@@ -1,6 +1,5 @@
 class GamesController < ApplicationController
   def show
-    @game = Game.new
     @game = Game.find(params[:id])
   end
 
@@ -10,17 +9,11 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    byebug
     @game.user = current_user
-    @game.type = false
-    @game.genre = false 
-    @game.year = false 
-    @game.director = false 
-    @game.language = false 
-    @gam.language_subtitle = false 
-    @game.country = false 
-    @game.vote_average = false 
-    @game.token = false 
-
+    @game.token = Devise.friendly_token.first(6) 
+    @game.save
+    redirect_to root_path
   end
 
   def game_params
