@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="avatar-section">
+  </div>
+  <div class="profil-section">
+    <h2> Welcome <%= current_user.nickname %> </h2>
+    <h3>Profil</h3>
+    <div class="profil-info d-flex">
+      <p>Nickname: </p>
+      <%= current_user.nickname %>
+    </div>
+    <div class="profil-info d-flex">
+      <p>Email: </p>
+      <%= current_user.email %>
+    </div>
+    <h3>Provider</h3>
+    <div class="d-flex">
+      <p>provider 1</p>
+      <p>provider 2</p>
+      <p>provider 3</p>
+    </div>
+    <a href="">Add providers</a>
+  </div>
+</div>
