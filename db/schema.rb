@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_20_152502) do
+ActiveRecord::Schema.define(version: 2021_02_23_190510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_152502) do
 
   create_table "games", force: :cascade do |t|
     t.string "token"
-    t.boolean "type"
+    t.boolean "watch_type"
     t.boolean "genre"
     t.boolean "year"
     t.boolean "director"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_152502) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.integer "type"
+    t.integer "watch_type"
     t.string "genre"
     t.integer "year"
     t.string "director"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_152502) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.integer "type"
+    t.integer "watch_type"
     t.string "genre"
     t.string "year"
     t.string "director"
