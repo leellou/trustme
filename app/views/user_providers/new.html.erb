@@ -1,0 +1,7 @@
+<div class="container">
+  <h2> add provider</h2>
+  <%= simple_form_for [current_user, @user_provider] do |f|%>
+    <%= f.input :provider  %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
