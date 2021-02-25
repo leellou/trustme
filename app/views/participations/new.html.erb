@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>Rejoindre la partie en inserant le code pin let's go !</h2>
+
+  <%= form_tag participations_path(@participation), method: "create" do %>
+    <%= label_tag :token, "token" %>
+    <%= text_field_tag :token %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+    <%= submit_tag "create participation" %>
+  <% end %>
+</div>
