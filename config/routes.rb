@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :user_providers, only: [:new, :create]
   end
-  resources :participations, only: [ :create ]
+  resources :participations, only: [ :new, :create ]
   resources :games, only: [ :show, :new, :create ] do
     resources :participations, only: [ :edit, :update ]
   end
