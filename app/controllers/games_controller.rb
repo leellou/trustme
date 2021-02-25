@@ -12,15 +12,12 @@ class GamesController < ApplicationController
     @game.user = current_user
     @game.token = Devise.friendly_token.first(6)
     @game.save
-    redirect_to root_path
+    redirect_to game_path(@game)
   end
 
   def game_params
-      params.require(:game).permit(:user, :movie, :type, :genre, :year,
-                                  :director, :language, :language_subtitle,
-                                  :country, :vote_average, :token)
+      params.require(:game).permit(:movie, :watch_type, :genre, :year,
+                                  :director, :language, :language_subtitle, 
+                                  :country, :vote_average, :token, :user)
   end
-
-
-
 end
