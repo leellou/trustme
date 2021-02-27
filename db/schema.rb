@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_190510) do
+ActiveRecord::Schema.define(version: 2021_02_27_141103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_190510) do
     t.boolean "director"
     t.boolean "language"
     t.boolean "language_subtitle"
-    t.boolean "country"
+    t.boolean "location"
     t.boolean "vote_average"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_190510) do
     t.string "director"
     t.string "language"
     t.string "language_subtitle"
-    t.string "country"
+    t.string "location"
     t.integer "vote_average"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_190510) do
     t.string "director"
     t.string "language"
     t.string "language_subtitle"
-    t.string "country"
+    t.string "location"
     t.integer "vote_average"
     t.bigint "user_id", null: false
     t.bigint "game_id", null: false

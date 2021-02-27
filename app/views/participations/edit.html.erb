@@ -1,6 +1,13 @@
 <div class="container">
   <h2>Participation edit</h2>
-  <%= simple_form_for @participation do |f| %>
-
+  <%= simple_form_for [@game, @participation] do |f| %>
+    <% @fields.each do |field| %>
+        
+        <%= f.input field.to_sym, label: field, collection: @genres.sample(2) %>
+          #<% @genres.sample(2).each do |genre| %>
+          #<%= genre %>
+        <% end %>
+    <% end %>
+    <%= f.button :submit %>
   <% end %>
 </div>

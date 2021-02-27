@@ -20,10 +20,11 @@
         </li>
     </ul>
   </div>
-  <div class="btn">
-    <%= link_to "Lancer la partie", edit_game_participation_path(current_user), class: "btn btn-primary" %>
-  </div>
-
+  <% if @participation %>
+    <div class="btn">
+          <%= link_to "Lancer la partie", edit_game_participation_path(@game, @participation), class: "btn btn-primary" %>
+    </div>
+  <% end %>
 
 
 
