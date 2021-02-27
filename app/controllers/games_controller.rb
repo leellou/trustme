@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
-    @user = User.find(params[:id])
+    @user = current_user
     @game_participation = @user.participations
 
     @participations = Participation.where(game_id: @game)

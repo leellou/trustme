@@ -9,18 +9,20 @@
 </div>
 
 <div class="container">
-  <div class="info-participant">
-    <ul>
+  <div class="participants-list" data-controller="participants">
+    <ul class="participants">
       <% @participations.each do |participation| %>
-        <li><span><%= participation.user.nickname%></span> à rejoint la partie !</li>
+      <li><span> <%= participation.user.nickname %></span> à rejoint la partie !</li>
       <% end %>
         <li id="load">
           <p>En attente d'autres participants</p>
           <div class="bar"></div>
         </li>
     </ul>
+
   </div>
   <div class="btn">
+    <button class="btn btn-danger" id="refresh">Refresh Participants</button>
     <%= link_to "Lancer la partie", edit_game_participation_path(current_user), class: "btn btn-primary" %>
   </div>
 
