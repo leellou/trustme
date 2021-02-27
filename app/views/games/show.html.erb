@@ -1,5 +1,30 @@
-<h1>Test game show</h1>
+<div class="info-partie">
+  <div class="info-partie-container">
+    <p>Rejoins la partie sur ton écran <br> ou avec l’application Trust me</p>
+    <div class="info-partie-token">
+      <h3>code partie :</h3>
+      <p><%= @game.token %></p>
+    </div>
+  </div>
+</div>
 
-#Besoin du token
-#Besoin des users rejoignant la partie
-#bouton pour aller sur la participation/new
+<div class="container">
+  <div class="info-participant">
+    <ul>
+      <% @participations.each do |participation| %>
+        <li><span><%= participation.user.nickname%></span> à rejoint la partie !</li>
+      <% end %>
+        <li id="load">
+          <p>En attente d'autres participants</p>
+          <div class="bar"></div>
+        </li>
+    </ul>
+  </div>
+  <div class="btn">
+    <%= link_to "Lancer la partie", edit_game_participation_path(current_user), class: "btn btn-primary" %>
+  </div>
+
+
+
+
+
