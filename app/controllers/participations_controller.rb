@@ -18,6 +18,16 @@ class ParticipationsController < ApplicationController
     end
   end
 
+  # PATCH /games/:game_id/participations/:id
+  def update
+    @game = Game.find(params[:game_id])
+  end
+
+  # GET /games/:game_id/participations/:id/edit
+  def edit
+    @game = Game.find(params[:game_id])
+  end
+
 private
 
   def participation_params

@@ -1,6 +1,10 @@
 class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
+    @user = User.find(params[:id])
+    @game_participation = @user.participations
+
+    @participations = Participation.where(game_id: @game)
   end
 
   def new
@@ -17,7 +21,7 @@ class GamesController < ApplicationController
 
   def game_params
       params.require(:game).permit(:movie, :watch_type, :genre, :year,
-                                  :director, :language, :language_subtitle, 
+                                  :director, :language, :language_subtitle,
                                   :country, :vote_average, :token, :user)
   end
 end
