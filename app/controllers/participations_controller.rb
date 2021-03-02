@@ -26,7 +26,10 @@ class ParticipationsController < ApplicationController
   def edit
     #@game_players = []
     #@game_players << current_user
-    @genres = ["comédie", "SF", "Horreur", "Guerre"]
+    @genres = ["comédie", "SF", "Horreur", "Guerre", "policier", "aventure", "historique"]
+    @languages = ["Français", "Anglais", "Allemand", "Russe", "Chinois", "Espagnol"]
+    @language_subtitles = ["Français", "Anglais", "Allemand", "Russe", "Chinois", "Espagnol"]
+    @locations = ["USA", "GB", "France", "Allemagne", "Russie", "Chine", "Espagne"]
     @game = Game.find(params[:game_id])
     @participation = Participation.find(params[:id])
     @fields = []
