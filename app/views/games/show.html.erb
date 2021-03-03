@@ -21,7 +21,7 @@
     </ul>
 
   </div>
-
+  <button class="btn btn-danger" id="refresh">Refresh Participants</button>
   <% if @participation %>
     <div class="btn">
           <%= link_to "Lancer la partie", edit_game_participation_path(@game, @participation), class: "btn btn-primary" %>
