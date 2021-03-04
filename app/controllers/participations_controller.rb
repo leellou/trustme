@@ -5,15 +5,18 @@ class ParticipationsController < ApplicationController
   end
 
   def create
-    @participation = Participation.new
-    @participation.user = current_user
     @game = Game.find_by(token: params[:token])
-    @participation.game = @game
-
-    if @participation.save!
-      redirect_to game_path(@game)
+    if current_user.participations.exists?(game: @game.id)
+      redirect_to game_path(@game), alert: "already join party"
     else
-      render :new
+      @participation = Participation.new
+      @participation.user = current_user
+      @participation.game = @game
+      if @participation.save!
+        redirect_to game_path(@game)
+      else
+        render :new
+      end
     end
   end
 
@@ -34,14 +37,14 @@ class ParticipationsController < ApplicationController
     @participation = Participation.find(params[:id])
     @fields = []
     @fields << "watch_type" if @game.watch_type
-    @fields << "genre" if @game.genre 
-    @fields << "year" if @game.year 
+    @fields << "genre" if @game.genre
+    @fields << "year" if @game.year
     @fields << "director" if @game.director
-    @fields << "language" if @game.language 
+    @fields << "language" if @game.language
     @fields << "language_subtitle" if @game.language_subtitle
-    @fields << "location" if @game.location  
+    @fields << "location" if @game.location
     @fields << "vote_average" if @game.vote_average
-    
+
   end
 
 private
