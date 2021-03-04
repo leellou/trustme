@@ -1,6 +1,53 @@
-<div class="container">
-  <h1>Trust me home</h1>
-
-<%= link_to "Join party", new_participation_path(@participation) %>
-<%= link_to "Create party", new_game_path(@game) %>
+<div class="banner-home-wrap">
+  <div class="banner-home">
+    <div class="container">
+      <div class="banner-home-info">
+        <h1>It's more <br> than just a movie!</h1>
+        <p>Laisse le jeu selectionner un film,<br>et découvre le avec tes amis, t’inquiete c’est cool et fun !</p>
+        <div class="banner-home-btn">
+          <div class=" button letters">
+            <%= link_to "Join party", new_participation_path(@participation), class: "btn" %>
+          </div>
+          <div class=" button letters">
+            <%= link_to "Create party", new_game_path(@game), class: "btn" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="scroll-indicator"></div>
+    </div>
+  </div>
 </div>
+
+<div class="container">
+  <div class="card-home">
+    <div class="card-home-img">
+      <%= image_tag("Illu.png") %>
+    </div>
+    <div class="card-home-info">
+      <h3>How to play</h3>
+      <ul>
+        <li class="card-home-info-items">
+          <i class="fas fa-chevron-circle-right"></i>
+          <p>Créez un compte</p>
+        </li>
+        <li class="card-home-info-items">
+          <i class="fas fa-chevron-circle-right"></i>
+          <p>Créez et personnalisez votre partie depuis un ordinateur ou un téléphone</p>
+        </li>
+        <li class="card-home-info-items">
+          <i class="fas fa-chevron-circle-right"></i>
+          <p>Un code apparaît et chaque joueur rejoint la partie sur son portable</p>
+        </li>
+        <li class="card-home-info-items">
+          <i class="fas fa-chevron-circle-right"></i>
+          <p>L’appareil qui a créé la partie lance le film dès que tout le monde est prêt !</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+

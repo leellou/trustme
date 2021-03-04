@@ -1,0 +1,55 @@
+
+// ----------------- home card -------------------------- >
+
+.card-home{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #F9F9F9;
+  border-radius: 20px;
+  color: #0A0749;
+  padding: 64px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.card-home-info{
+  margin: 24px;
+  width: 50%;
+
+}
+
+.card-home-img{
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  margin: 24px;
+
+  .card-home-img img{
+    width: 100%;
+  }
+}
+
+.card-home-info li{
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.card-home-info p{
+  margin: 0;
+}
+
+.card-home-info i{
+  color: #D70032;
+  font-size: 18px;
+}
+
+.card-home-info-items p{
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+
+// -----------------  card -------------------------- >

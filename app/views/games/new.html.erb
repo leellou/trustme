@@ -1,8 +1,12 @@
+<div class="game-new-banner">
+  <div class="container">
+    <h2>Creer ta partie</h2>
+    <p>Selectionne les critères que tu veux pour ta partie,  ou lance en aléatoire!</p>
+  </div>
+</div>
+
+
 <div class="container">
-  <h2> New game </h2>
-
-  <h3>Les critères :</h3>
-
   <%= simple_form_for @game do |f| %>
     <%= f.input :watch_type, label: "watch_type" %>
     <%= f.input :year, label: "year" %>
@@ -12,9 +16,9 @@
     <%= f.input :language, label: "language" %>
     <%= f.input :language_subtitle, label: "language subtitle" %>
     <%= f.input :vote_average, label: "vote average" %>
-
-    <%= f.button :submit %>
-
+    <div class="button letters">
+      <%= f.button :submit, class: "btn" %>
+    </div>
   <% end %>
 </div>
 

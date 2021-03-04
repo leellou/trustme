@@ -3,7 +3,7 @@
   justify-content: center;
 }
 .info-partie{
-  background-color: #211260;
+  background-color: $tpurple;
 
   .info-partie-container {
     width: 900px;
@@ -27,7 +27,7 @@
 
   p{
     background-color: white;
-    color: #D70032;
+    color: $tred;
     font-size: 32px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -39,7 +39,7 @@
 
 .participants-list{
     margin-top: 24px;
-    color: #0A0749;
+    color: $dark-tblue;
 
    .participants li{
     background-color: rgb(249, 249, 249);
@@ -52,7 +52,7 @@
   }
   span {
     font-weight: bold;
-    color: #211260;
+    color: $tpurple;
   }
 }
 
@@ -68,9 +68,10 @@
   width: 15px;
   height: 6px;
   border-radius: 2px;
-  background-color: #211260;
+  background-color: $tpurple;
 }
 
+// ----------------- load indiator -------------------------- >
 
 #load{
   display: flex;
@@ -87,6 +88,8 @@
   }
 }
 
+// ----------------- load indicator anim -------------------------- >
+
 @keyframes loading {
   0%,
   100% {
@@ -95,7 +98,7 @@
 
   50% {
     transform: translate(80px, 0);
-    background-color: #D70032;
+    background-color: $tred;
     width: 25px;
   }
 }
