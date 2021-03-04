@@ -1,10 +1,33 @@
-<div class="container">
-  <h2>Rejoindre la partie en inserant le code pin let's go !</h2>
+<div class="container container-participation">
+  <div class="logo">
+    <%= image_tag("trustme-logo.png") %>
+  </div>
+  <div class="participation-form">
+    <%= form_tag participations_path(@participation), method: "create" do %>
+      <%= text_field_tag :token, nil, placeholder: "Enter code" %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+      <div class="button letters" >
+        <%= submit_tag "Join now", class: "btn" %>
+      </div>
+    <% end %>
+  </div>
 
-  <%= form_tag participations_path(@participation), method: "create" do %>
-    <%= label_tag :token, "token" %>
-    <%= text_field_tag :token %>
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-    <%= submit_tag "create participation" %>
-  <% end %>
 </div>
+
+
+<!-- ---------------- font anim -->
+
+<div class="area" >
+            <ul class="shapes">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+</div >

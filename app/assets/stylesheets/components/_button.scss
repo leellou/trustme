@@ -1,0 +1,38 @@
+.button {
+  margin-right: 48px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 40px;
+  width: 210px;
+  background-color: #D70032;
+  border: 1px solid rgba(0, 0, 0, .2);
+  box-shadow: 0 3px 0 rgb(148, 0, 53);
+  color: white;
+  font-family: $t-title-font;
+
+}
+
+.button .btn{
+  color: white;
+  text-transform: uppercase;
+}
+
+.button:active{
+  box-shadow: none;
+  position: relative;
+  top: 2px;
+}
+
+
+.letters .btn{
+  transition: letter-spacing 0.5s;
+}
+
+.letters:hover .btn{
+  letter-spacing:2px;
+  color: white;
+
+}
