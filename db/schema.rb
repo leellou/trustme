@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_141103) do
+ActiveRecord::Schema.define(version: 2021_03_08_210845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,22 @@ ActiveRecord::Schema.define(version: 2021_02_27_141103) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
+  create_table "genre_movies", force: :cascade do |t|
+    t.bigint "genre_id", null: false
+    t.bigint "movie_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_genre_movies_on_genre_id"
+    t.index ["movie_id"], name: "index_genre_movies_on_movie_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "tmdb_id"
+  end
+
   create_table "movie_providers", force: :cascade do |t|
     t.bigint "provider_id", null: false
     t.bigint "movie_id", null: false
@@ -54,28 +70,29 @@ ActiveRecord::Schema.define(version: 2021_02_27_141103) do
     t.integer "watch_type"
     t.string "genre"
     t.integer "year"
-    t.string "director"
-    t.string "language"
-    t.string "language_subtitle"
-    t.string "location"
+    t.string "original_language"
     t.integer "vote_average"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "runtime"
+    t.text "overview"
+  end
+
+  create_table "original_languages", force: :cascade do |t|
+    t.string "iso_639_1"
+    t.string "english_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "participations", force: :cascade do |t|
-    t.integer "watch_type"
-    t.string "genre"
     t.string "year"
-    t.string "director"
-    t.string "language"
-    t.string "language_subtitle"
-    t.string "location"
     t.integer "vote_average"
     t.bigint "user_id", null: false
     t.bigint "game_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "runtime"
     t.index ["game_id"], name: "index_participations_on_game_id"
     t.index ["user_id"], name: "index_participations_on_user_id"
   end
@@ -111,6 +128,8 @@ ActiveRecord::Schema.define(version: 2021_02_27_141103) do
   add_foreign_key "game_movies", "games"
   add_foreign_key "game_movies", "movies"
   add_foreign_key "games", "users"
+  add_foreign_key "genre_movies", "genres"
+  add_foreign_key "genre_movies", "movies"
   add_foreign_key "movie_providers", "movies"
   add_foreign_key "movie_providers", "providers"
   add_foreign_key "participations", "games"
