@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_210845) do
+ActiveRecord::Schema.define(version: 2021_03_09_194319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,17 +26,16 @@ ActiveRecord::Schema.define(version: 2021_03_08_210845) do
 
   create_table "games", force: :cascade do |t|
     t.string "token"
-    t.boolean "watch_type"
     t.boolean "genre"
     t.boolean "year"
-    t.boolean "director"
-    t.boolean "language"
-    t.boolean "language_subtitle"
-    t.boolean "location"
+    t.boolean "original_language"
     t.boolean "vote_average"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "provider_id"
+    t.boolean "runtime"
+    t.index ["provider_id"], name: "index_games_on_provider_id"
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
@@ -67,15 +66,14 @@ ActiveRecord::Schema.define(version: 2021_03_08_210845) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.integer "watch_type"
-    t.string "genre"
     t.integer "year"
-    t.string "original_language"
     t.integer "vote_average"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "runtime"
     t.text "overview"
+    t.bigint "original_language_id"
+    t.index ["original_language_id"], name: "index_movies_on_original_language_id"
   end
 
   create_table "original_languages", force: :cascade do |t|
@@ -93,7 +91,11 @@ ActiveRecord::Schema.define(version: 2021_03_08_210845) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "runtime"
+    t.bigint "original_language_id"
+    t.bigint "genre_id"
     t.index ["game_id"], name: "index_participations_on_game_id"
+    t.index ["genre_id"], name: "index_participations_on_genre_id"
+    t.index ["original_language_id"], name: "index_participations_on_original_language_id"
     t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
@@ -101,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_210845) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "tmdb_id"
   end
 
   create_table "user_providers", force: :cascade do |t|
@@ -127,12 +130,16 @@ ActiveRecord::Schema.define(version: 2021_03_08_210845) do
 
   add_foreign_key "game_movies", "games"
   add_foreign_key "game_movies", "movies"
+  add_foreign_key "games", "providers"
   add_foreign_key "games", "users"
   add_foreign_key "genre_movies", "genres"
   add_foreign_key "genre_movies", "movies"
   add_foreign_key "movie_providers", "movies"
   add_foreign_key "movie_providers", "providers"
+  add_foreign_key "movies", "original_languages"
   add_foreign_key "participations", "games"
+  add_foreign_key "participations", "genres"
+  add_foreign_key "participations", "original_languages"
   add_foreign_key "participations", "users"
   add_foreign_key "user_providers", "providers"
   add_foreign_key "user_providers", "users"
