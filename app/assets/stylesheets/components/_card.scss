@@ -3,32 +3,15 @@
 
 .card-home{
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   background-color: #F9F9F9;
   border-radius: 20px;
   color: #0A0749;
-  padding: 64px;
-  margin-top: 24px;
-  margin-bottom: 32px;
-  position: relative;
+  margin: 32px 0;
 }
 
 .card-home-info{
   margin: 24px;
-  width: 50%;
-
-}
-
-.card-home-img{
-  position: absolute;
-  left: 24px;
-  bottom: 24px;
-  margin: 24px;
-
-  .card-home-img img{
-    width: 100%;
-  }
 }
 
 .card-home-info li{
@@ -37,19 +20,64 @@
   margin: 16px 0;
 }
 
-.card-home-info p{
-  margin: 0;
-}
-
 .card-home-info i{
   color: #D70032;
   font-size: 18px;
 }
 
 .card-home-info-items p{
-  margin-left: 8px;
+  margin-left: 16px;
   font-size: 16px;
 }
 
 
-// -----------------  card -------------------------- >
+// ----------------- home responsive -------------------------- >
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .card-home-img{
+    display: none;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .card-home-img{
+    display: none;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .card-home{
+
+    position: relative;
+    justify-content: flex-end;
+    padding: 64px;
+  }
+
+  .card-home-img{
+    display: flex;
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    margin: 24px;
+
+  .card-home-img img{
+    width: 100%;
+  }
+}
+  .card-home-info{
+    width: 50%;
+  }
+}
