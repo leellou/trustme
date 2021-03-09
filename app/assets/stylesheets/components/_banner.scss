@@ -1,3 +1,132 @@
+// ----------------- home -------------------------- >
+
+.banner-home-wrap {
+  filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.35));
+}
+
+.banner-home{
+  width: 100%;
+  height: 90vh;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner-home-info{
+  h1{
+    color: $tred;
+    font-weight: 900;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+
+  p{
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+}
+
+// ----------------- home responsive -------------------------- >
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+
+  .banner-home{
+    background: image-url("popcorn-mobile.svg");
+    background-size: cover;
+    background-position: top;
+  }
+
+  .banner-home-info{
+    h1{
+      font-size: 48px;
+    }
+
+    p{
+      font-size: 16px;
+    }
+  }
+
+  .banner-home-btn{
+    flex-direction: column;
+    margin: 72px auto;
+
+    .button{
+      margin: 32px auto;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .banner-home{
+    background: image-url("popcorn-mobile.svg");
+    background-size: cover;
+    background-position: top;
+  }
+
+  .banner-home-info{
+    h1{
+      font-size: 56px;
+    }
+
+    p{
+      font-size: 16px;
+    }
+  }
+
+  .banner-home-btn{
+    flex-direction: column;
+    margin: 72px auto;
+
+    .button{
+      margin: 32px auto;
+    }
+  }
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .banner-home{
+    background: image-url("popcorn.svg");
+    background-size: cover;
+    background-position: right;
+  }
+
+  .banner-home-btn{
+    display: flex;
+    flex-direction: row;
+
+    .button{
+      margin: 0 24px 0 0;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+  .banner-home{
+    background: image-url("popcorn.svg");
+    background-size: cover;
+    background-position: bottom;
+
+    h1{
+      font-size: 64px;
+    }
+    p{
+      font-size: 18px;
+    }
+  }
+}
+
+// ----------------- game#new -------------------------- >
+
 .game-new-banner{
   width: 100%;
   background-color: $tpurple;
@@ -10,3 +139,5 @@
     font-size: 12px;
   }
 }
+
+

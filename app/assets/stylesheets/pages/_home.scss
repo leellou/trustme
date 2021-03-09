@@ -6,55 +6,24 @@ body {
 }
 
 p{
-  font-size: $t-body-font;
+  font-family: $t-body-font;
+  margin: 0;
+}
+
+h1{
+  font-family: $t-body-font;
+  margin: 0;
 }
 
 h2, h3{
-    font-family: $t-title-font;
+  font-family: $t-title-font;
+  margin: 0;
 }
 
-// ----------------- banner  -------------------------- >
-
-.banner-home-wrap {
-  filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.35));
-
-    .banner-home{
-      width: 100%;
-      height: 90vh;
-      background: image-url("popcorn.svg");
-      background-size: cover;
-      background-position: bottom;
-      clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
-    }
-
-    h1{
-      margin: 0;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-      font-size: 52px;
-      font-weight: bold;
-      color: $tred;
-      font-family: $t-body-font;
-      font-weight: 900;
-    }
-
-    p{
-      font-size: 16px;
-      color: white;
-      opacity: .7;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-      margin: 0;
-    }
+ul{
+  padding: 0;
 }
 
-.banner-home-info{
-  padding: 150px 0;
-
-    .banner-home-btn{
-      display: flex;
-      margin: 64px 0;
-    }
-}
 
 // ----------------- scroll indicator -------------------------- >
 
@@ -112,5 +81,6 @@ h2, h3{
     opacity: 0;
   }
 }
+
 
 
