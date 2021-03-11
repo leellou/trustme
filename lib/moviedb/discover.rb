@@ -5,13 +5,13 @@ module Moviedb
   class Discover
     def self.search(options = {})
       # Definir l'url
-      base_url = "https://api.themoviedb.org/3/discover/movie?api_key=10148f31e8f64b64e290f2ba7fe369b2&language=fr&include_adult=false&include_video=false"
+      base_url = "https://api.themoviedb.org/3/discover/movie?api_key=#{ENV['MOVIEDBAPIKEY']}&language=fr&include_adult=false&include_video=false"
       build_url = []
       end_url = "&watch_region=FR"
 
       case options
         when options[:year]
-          build_url << "&year=#{options[:year]}"
+          build_url << "&year=#{options[:year].join("%7C")}"
         when options[:vote_averge]
           build_url << "&vote_average=#{options[:vote_averge]}"
         when options[:genre]
@@ -21,8 +21,10 @@ module Moviedb
         when options[:original_language]
           build_url << "&with_original_language=#{options[:original_language]}"
         when options[:watch_providers]
-          build_url << "with_watch_providers=#{options[:watch_providers]}"
+          build_url << "&with_watch_providers=#{options[:watch_providers]}"
       end
+
+      url = base_url + build_url.join + end_url
       # Call a l'API pour récupérer le JSON
       movies_serialized = open(url).read
       # Parse du JSON
