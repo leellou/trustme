@@ -5,4 +5,5 @@ class Game < ApplicationRecord
   has_one :movie, through: :game_movie
 
   validates :token, presence: true, uniqueness: true
+
 end

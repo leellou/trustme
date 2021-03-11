@@ -24,8 +24,11 @@ class ParticipationsController < ApplicationController
   def update
     @game = Game.find(params[:game_id])
     @participation = Participation.find(params[:id])
-    @participation.update(participation_params)
-    redirect_to game_path(@game)
+    if @participation.update(participation_params)
+      redirect_to game_path(@game)
+    else
+      render :edit
+    end
   end
 
   # GET /games/:game_id/participations/:id/edit
