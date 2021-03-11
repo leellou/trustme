@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 2021_03_09_194319) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "runtime"
-    t.bigint "genre_id"
     t.bigint "original_language_id"
+    t.bigint "genre_id"
     t.index ["game_id"], name: "index_participations_on_game_id"
     t.index ["genre_id"], name: "index_participations_on_genre_id"
     t.index ["original_language_id"], name: "index_participations_on_original_language_id"

@@ -21,8 +21,8 @@ class GamesController < ApplicationController
   end
 
   def game_params
-      params.require(:game).permit(:movie, :watch_type, :genre, :year,
-                                  :director, :language, :language_subtitle,
-                                  :location, :vote_average, :token, :user)
+      params.require(:game).permit(:genre, :year, :provider,
+                                  :original_language, :vote_average,
+                                    :token, :user)
   end
 end
