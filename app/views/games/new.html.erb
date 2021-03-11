@@ -7,15 +7,13 @@
 
 
 <div class="container">
-  <%= simple_form_for @game do |f| %>
-    <%= f.input :watch_type, label: "watch_type" %>
-    <%= f.input :year, label: "year" %>
+    <%= simple_form_for @game do |f| %>
     <%= f.input :genre, label: "genre" %>
-    <%= f.input :director, label: "director" %>
-    <%= f.input :location, label: "location" %>
-    <%= f.input :language, label: "language" %>
-    <%= f.input :language_subtitle, label: "language subtitle" %>
+    <%= f.input :year, label: "year" %>
+    <%= f.input :original_language, label: "original language" %>
+    <%= f.input :runtime, label: "runtime" %>
     <%= f.input :vote_average, label: "vote average" %>
+       
     <div class="button letters">
       <%= f.button :submit, class: "btn" %>
     </div>

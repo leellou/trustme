@@ -2,6 +2,6 @@ class Participation < ApplicationRecord
   belongs_to :user
   belongs_to :game
 
-  has_many :original_languages
-  has_many :genres
+  belongs_to :original_language
+  belongs_to :genre
 end
