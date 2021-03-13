@@ -23,6 +23,12 @@ class ParticipationsController < ApplicationController
   # PATCH /games/:game_id/participations/:id
   def update
     @game = Game.find(params[:game_id])
+    @participation = Participation.find(params[:id])
+    if @participation.update(participation_params)
+      redirect_to game_path(@game)
+    else
+      render :edit
+    end
   end
 
   # GET /games/:game_id/participations/:id/edit
