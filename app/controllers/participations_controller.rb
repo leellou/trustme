@@ -24,19 +24,29 @@ class ParticipationsController < ApplicationController
   def update
     @game = Game.find(params[:game_id])
     @participation = Participation.find(params[:id])
-    if @participation.update(participation_params)
-      redirect_to game_path(@game)
-    else
-      render :edit
-    end
+    @participation.update(
+      genre_id: params[:participation][:genre].to_i,
+      original_language_id: OriginalLanguage.find_by(english_name: params[:participation][:original_language]).id,
+      year: params[:participation][:year],
+      runtime: params[:participation][:runtime],
+      vote_average: params[:participation][:vote_average]
+      )
+    redirect_to game_path(@game)
+    # if @participation.update(participation_params)
+    #   redirect_to game_path(@game)
+    # else
+    #   render :edit
+    # end
   end
 
   # GET /games/:game_id/participations/:id/edit
   def edit
     #@game_players = []
     #@game_players << current_user
-    @genres = ["comédie", "SF", "Horreur", "Guerre", "policier", "aventure", "historique"]
-    @original_languages = ["Français", "Anglais", "Allemand", "Russe", "Chinois", "Espagnol"]
+    #@genres = ["comédie", "SF", "Horreur", "Guerre", "policier", "aventure", "historique"]
+    #@original_languages = ["Français", "Anglais", "Allemand", "Russe", "Chinois", "Espagnol"]
+    @genres=Genre.all
+    @original_languages=OriginalLanguage.all.pluck(:english_name)
     @game = Game.find(params[:game_id])
     @participation = Participation.find(params[:id])
     @fields = []
