@@ -5,6 +5,8 @@
         <% tri = instance_variable_get('@'+field+'s') %>
         <%= f.input field.to_sym, label: field, collection: tri.sample(2) %>
     <% end %>
-    <%= f.button :submit %>
+    <div class="button letters">
+      <%= f.button :submit, class: "btn" %>
+    </div>
   <% end %>
 </div>
