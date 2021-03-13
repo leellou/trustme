@@ -1,7 +1,6 @@
 class Movie < ApplicationRecord
   has_many :providers, through: :movie_providers
-  has_many :game_movie
-  has_many :genre, through: :genre_movies
-
+  has_many :genres
+  belongs_to :game
   #enum watch_type: [:film, :serie]
 end

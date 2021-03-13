@@ -1,4 +1,4 @@
 class OriginalLanguage < ApplicationRecord
-  has_many :movies
-  has_many :participations
+  has_many :movies, dependent: :destroy 
+  has_many :participations, dependent: :destroy
 end
