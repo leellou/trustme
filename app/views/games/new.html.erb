@@ -8,12 +8,14 @@
 
 <div class="container">
     <%= simple_form_for @game do |f| %>
+
+    <%= f.association :providers, as: :check_boxes %>
     <%= f.input :genre, label: "genre" %>
     <%= f.input :year, label: "year" %>
     <%= f.input :original_language, label: "original language" %>
     <%= f.input :runtime, label: "runtime" %>
     <%= f.input :vote_average, label: "vote average" %>
-       
+
     <div class="button letters">
       <%= f.button :submit, class: "btn" %>
     </div>

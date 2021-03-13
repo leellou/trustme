@@ -10,6 +10,7 @@ puts "Cleaning database..."
 User.destroy_all
 Genre.destroy_all
 OriginalLanguage.destroy_all
+Provider.destroy_all
 
 puts "Creating users..."
 
@@ -39,4 +40,11 @@ OriginalLanguage.create(iso_639_1: "fr", english_name:"French")
 
 puts "Finished for languages !"
 
+puts "Creating providers..."
+Provider.create(tmdb_id:119, name:"Amazon")
+Provider.create(tmdb_id:337, name:"Disney plus")
+Provider.create(tmdb_id:8, name:"Netflix")
+Provider.create(tmdb_id:381, name:"Canal plus")
+Provider.create(tmdb_id:56, name:"OCS")
 
+puts "Finished for providers !"
