@@ -15,11 +15,11 @@ module Moviedb
         when options[:vote_averge]
           build_url << "&vote_average=#{options[:vote_averge].join('%7C')}"
         when options[:genre]
-          build_url << "&with_genres=#{options[:genre].join('%7C')}"
+          build_url << "&with_genres=#{options[:genre_id].join('%7C')}"
         when options[:runtime]
           build_url << "&with_runtime=#{options[:runtime].join('%7C')}"
         when options[:original_language]
-          build_url << "&with_original_language=#{options[:original_language].join('%7C')}"
+          build_url << "&with_original_language=#{options[:original_language_id].join('%7C')}"
         when options[:watch_providers]
           build_url << "&with_watch_providers=#{options[:watch_providers].join('%7C')}"
       end
@@ -29,10 +29,7 @@ module Moviedb
       movies_serialized = open(url).read
       # Parse du JSON
       movies = JSON.parse(movies_serialized)
-      # Recup les infos dont on a besoin (liste de films)
-      # movies["results"].sample(1).each do |movie|
-      #   p movie["original_title"]
-      # end
+      # Recup les infos dont on a besoin
       return movies["results"].sample(1).first
     end
   end
