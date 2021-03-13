@@ -6,7 +6,7 @@ class GamesController < ApplicationController
     @user = current_user
     @participations = Participation.where(game_id: @game)
     @participation = @participations.find_by(user_id: current_user)
-    # @movie = game.movie if game.movie
+    @movie = @game.movie
   end
 
   def new
@@ -28,23 +28,24 @@ class GamesController < ApplicationController
     # uniq reduire les choix
     @year_choices = @participations.pluck(:year).uniq
     @vote_average_choices = @participations.pluck(:vote_average).uniq
-    @genre_choices = @participations.pluck(:genre_id).uniq
-    @runtime_choice = @participations.pluck(:runtime).uniq
-    @original_language_choices = @participations.pluck(:original_language_id).uniq
+    @genre_choices =  @participations.includes(:genre).pluck('genres.tmdb_id').uniq
+    @runtime_choices = @participations.pluck(:runtime).uniq
+    @original_language_choices = @participations.includes(:original_language).pluck('original_languages.iso_639_1').uniq
+    @watch_providers_choices = @game.providers.pluck(:tmdb_id)
     # movie = requete a l'api avec le module (! require)
-    movie = Moviedb::Discover.search({year: @year_choice,
+    moviesearch = Moviedb::Discover.search({year: @year_choices,
                                       vote_average: @vote_average_choices,
                                       genre_id: @genre_choices,
-                                      runtime: @runtime_choice,
-                                      original_language_id: @original_language_choice,
-                                      watch_providers: @game.providers.pluck(:tmdb_id)
+                                      runtime: @runtime_choices,
+                                      original_language_id: @original_language_choices,
+                                      watch_providers: @watch_providers_choices
                                     })
     # movie.create
-    movie = Movie.create!(title: movie["title"],
-                          overview: movie["overview"],
-                          original_language_id: OriginalLanguage.find_by(iso_639_1: movie["original_language"]).id,
-                          vote_average: movie["vote_average"],
-                          genre_id: Genre.find_by(tmdb_id: movie["genre_ids"]).id)
+    movie = Movie.create!(title: moviesearch["title"],
+                          overview: moviesearch["overview"],
+                          original_language_id: OriginalLanguage.find_by(iso_639_1: moviesearch["original_language"]).id,
+                          vote_average: moviesearch["vote_average"],
+                          game_id: @game.id)
     # redirect to game#show
     redirect_to game_path(@game)
   end

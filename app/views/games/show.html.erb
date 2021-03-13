@@ -9,6 +9,13 @@
 </div>
 
 <div class="container">
+    <% if @game.movie %>
+      <div class="game-card">
+        <h3><%= @movie.title %></h3>
+        <p> <%= @movie.vote_average %></p>
+        <p> <%= @movie.overview %></p>
+      </div>
+    <% else %>
   <div class="participants-list" data-controller="participants">
     <ul class="participants">
       <% @participations.each do |participation| %>
@@ -27,6 +34,7 @@
     </div>
   <% end %>
     <%= link_to "Reveal", find_movie_game_path(@game), method: :post %>
+    <% end %>
 </div>
 
 
