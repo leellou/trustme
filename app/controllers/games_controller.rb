@@ -18,6 +18,9 @@ class GamesController < ApplicationController
     @game.user = current_user
     @game.token = Devise.friendly_token.first(6)
     @game.save
+    params[:game][:provider_ids].each do |provider|
+      @game.game_providers.build(game_id: @game.id, provider_id: provider.to_i).save
+    end
     redirect_to game_path(@game)
   end
 
@@ -53,8 +56,8 @@ class GamesController < ApplicationController
   private
 
   def game_params
-      params.require(:game).permit(:genre, :year, :provider,
+      params.require(:game).permit(:genre, :year, :provider_ids,
                                     :original_language, :vote_average,
-                                    :token, :user)
+                                    :token, :user, :runtime)
   end
 end
