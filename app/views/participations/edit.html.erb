@@ -1,12 +1,35 @@
-<div class="container">
+<!-- <div class="container">
   <h2>Participation edit</h2>
-  <%= simple_form_for [@game, @participation] do |f| %>
-    <% @fields.each do |field| %>
-        <% tri = instance_variable_get('@'+field+'s') %>
-        <%= f.input field.to_sym, label: field, collection: tri.sample(2) %>
-    <% end %>
+  <%#= simple_form_for [@game, @participation] do |f| %>
+    <%# @fields.each do |field| %>
+        <%# tri = instance_variable_get('@'+field+'s') %>
+        <%#= f.input field.to_sym, label: field, collection: tri.sample(2) %>
+    <%# end %>
     <div class="button letters">
-      <%= f.button :submit, class: "btn" %>
+      <%#= f.button :submit, class: "btn" %>
     </div>
-  <% end %>
+  <%# end %>
+</div> -->
+
+<div class="participation-edit-banner">
+  <div class="container">
+    <h2>A toi de jouer !</h2>
+    <p>Choisi le critères que tu préfere entre les deux propositions...</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="participation-card">
+    <div class="choice">
+      <%= simple_form_for [@game, @participation] do |f| %>
+        <% @fields.each do |field| %>
+            <% tri = instance_variable_get('@'+field+'s') %>
+            <%= f.input field.to_sym, as: :radio_buttons, label: field.titleize.upcase, collection: tri.sample(2) %>
+        <% end %>
+        <div class="button letters">
+          <%= f.button :submit, class: "btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

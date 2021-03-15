@@ -6,16 +6,34 @@
 </div>
 
 
-<div class="container">
+<div class="container game-container">
     <%= simple_form_for @game do |f| %>
+    <h4> Choisir les Plateformes de streaming disponible:</h4>
+    <div class="tag-providers">
+    <%= f.association :providers, as: :check_boxes, include_hidden: false, legend_tag: false,
+                      input_html: { class: "tag-selector" },
+                      item_wrapper_class: 'tag-item',
+                      label: false %>
+    </div>
+    <h4> Choisir les critères de la partie: </h4>
+    <div class="tag-criteres">
 
-    <%= f.association :providers, as: :check_boxes, include_hidden: false %>
-    <%= f.input :genre, label: "genre" %>
-    <%= f.input :year, label: "year" %>
-    <%= f.input :original_language, label: "original language" %>
-    <%= f.input :runtime, label: "runtime" %>
-    <%= f.input :vote_average, label: "vote average" %>
-
+    <%= f.input :genre, label: "genre",
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item' %>
+    <%= f.input :year, label: "year",
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item' %>
+    <%= f.input :original_language, label: "original language",
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item' %>
+    <%= f.input :runtime, label: "runtime",
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item' %>
+    <%= f.input :vote_average, label: "vote average",
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item' %>
+    </div>
     <div class="button letters">
       <%= f.button :submit, class: "btn" %>
     </div>
