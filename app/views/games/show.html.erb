@@ -1,33 +1,36 @@
 
-  <% if @game.movie %>
-    <div class="reveal-banner">
-      <div class="container">
-        <h2>Le film de la soirée sera...</h2>
-        <p>Le film va apparaitre dans quelques instant</p>
-      </div>
-    </div>
+<% if @game.movie %>
+  <div class="reveal-banner">
     <div class="container">
-      <div class="game-card d-flex">
-        <div class="game-card-img">
-          <%= image_tag "https://image.tmdb.org/t/p/w300#{@movie.poster}" %>
-        </div>
-        <div class="game-card-info">
-          <h3><%= @movie.title %></h3>
-          <p><%= @movie.vote_average %></p>
-          <p><%= @movie.overview %></p>
-        </div>
-      </div>
+      <h2>Le film de la soirée sera...</h2>
+      <p>Le film va apparaitre dans quelques instant</p>
     </div>
-  <% else %>
-  <div class="info-partie">
-    <div class="info-partie-container">
-      <p>Rejoins la partie sur ton écran <br> ou avec l’application Trust me</p>
-      <div class="info-partie-token">
-        <h3>code partie :</h3>
-        <p><%= @game.token %></p>
+  </div>
+  <div class="container">
+    <div class="game-card d-flex">
+      <div class="game-card-img">
+        <%= image_tag "https://image.tmdb.org/t/p/w300#{@movie.poster}" %>
+      </div>
+      <div class="game-card-info">
+        <h3><%= @movie.title %></h3>
+        <p><%= @movie.vote_average %></p>
+        <p><%= @movie.overview %></p>
       </div>
     </div>
   </div>
+
+<% else %>
+
+<div class="info-partie">
+  <div class="info-partie-container">
+    <p>Rejoins la partie sur ton écran <br> ou avec l’application Trust me</p>
+    <div class="info-partie-token">
+      <h3>code partie :</h3>
+      <p><%= @game.token %></p>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="participants-list" data-controller="participants">
     <ul class="participants">
@@ -38,20 +41,18 @@
           <p>En attente d'autres participants</p>
           <div class="bar"></div>
         </li>
-      <% end %>
     </ul>
+      <% if @participation %>
+        <button class="btn btn-danger" id="refresh">Refresh Participants</button>
+        <div class="button letters">
+          <%= link_to "Launch", edit_game_participation_path(@game, @participation), class: "btn" %>
+        </div>
+        <div class="button letters">
+         <%= link_to "Reveal", find_movie_game_path(@game), method: :post, class: "btn" %>
+        </div>
+      <% end %>
   </div>
-
-  <% if @participation %>
-      <button class="btn btn-danger" id="refresh">Refresh Participants</button>
-    <div class="button letters">
-      <%= link_to "Launch", edit_game_participation_path(@game, @participation), class: "btn" %>
-    </div>
-    <div class="button letters">
-      <%= link_to "Reveal", find_movie_game_path(@game), method: :post, class: "btn" %>
-    </div>
-  <% end %>
 </div>
 
-
+<% end %>
 
