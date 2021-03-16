@@ -47,6 +47,9 @@ class ParticipationsController < ApplicationController
     #@original_languages = ["Français", "Anglais", "Allemand", "Russe", "Chinois", "Espagnol"]
     @genres=Genre.all
     @original_languages=OriginalLanguage.all.pluck(:english_name)
+    @runtimes = [60, 90, 105, 120, 150, 180, 240, 300]
+    @vote_averages = [*0 ... 10]
+    @years = [*1920 ... 2021]
     @game = Game.find(params[:game_id])
     @participation = Participation.find(params[:id])
     @fields = []

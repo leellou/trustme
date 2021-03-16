@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   end
   resources :participations, only: [ :new, :create ]
   resources :games, only: [ :show, :new, :create ] do
+    collection do
+      get :nomovie
+    end
     member do
       post 'find_movie'
     end
