@@ -43,6 +43,7 @@ class GamesController < ApplicationController
                                       original_language_id: @original_language_choices,
                                       watch_providers: @watch_providers_choices
                                     })
+
     
     #moviesearch is nil ?
     if moviesearch.nil?

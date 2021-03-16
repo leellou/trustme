@@ -143,3 +143,51 @@ input::placeholder{
     }
 
 }
+// ----------------- edit -------------------------- >
+
+.participation-card .form-group{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form-check-label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $t-title-font;
+    width: 300px;
+    height: 100px;
+  }
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.choice .button{
+  margin: 0px auto;
+  margin-top: 32px;
+  width: 400px;
+
+}
+
+.choice label {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius:5px;
+  padding:10px;
+  margin-top:10px;
+  display:block;
+  position:relative;
+}
+
+.choice label:hover {
+  cursor: pointer;
+  border: 3px solid $tred;
+}
+
+input[type="radio"]:checked + label {
+  border: 3px solid $tred;
+  background-color: white;
+  color: $dark-tblue;
+}

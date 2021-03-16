@@ -88,5 +88,19 @@
   color: #0A0749;
   margin: 32px 0;
   padding: 32px;
+  display: flex;
 }
 
+.game-card-info{
+  padding: 32px;
+}
+
+// ----------------- participation card -------------------------- >
+
+.participation-card{
+  width: 900px;
+  margin: 32px auto;
+  border-radius: 20px;
+  padding: 32px;
+  background-color: $tpurple;
+}
