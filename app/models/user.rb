@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :participations, dependent: :destroy
   has_many :games, dependent: :destroy
+  has_one_attached :photo
 
   validates :nickname, presence: true, uniqueness: true
 end

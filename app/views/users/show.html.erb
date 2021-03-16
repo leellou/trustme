@@ -12,10 +12,10 @@
       <p>Email: </p>
       <%= current_user.email %>
     </div>
-    <h3>Provider</h3>
+    <h3>avatar</h3>
     <div class="d-flex">
-
+      <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill %>
     </div>
   </div>
-  <%= link_to "add provider",  new_user_user_provider_path(current_user) %>
+  <%= link_to "Edit", edit_user_registration_path, class: "btn btn-warning rounded-pill" %>
 </div>
