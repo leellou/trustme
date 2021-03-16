@@ -1,21 +1,20 @@
 <div class="container">
-  <div class="avatar-section">
+  <div class="user-section">
+    <div class="avatar-section">
+      <%= cl_image_tag current_user.photo.key, height: 200, width: 200, crop: :fill %>
+       <%= link_to "Edit profil", edit_user_registration_path, class: "profil-btn" %>
+    </div>
+    <div class="profil-section">
+      <h2> Welcome <%= current_user.nickname %></h2>
+      <h3>Profil</h3>
+      <div class="profil-info">
+        <p>Nickname: </p>
+        <%= current_user.nickname %>
+      </div>
+      <div class="profil-info">
+        <p>Email: </p>
+        <%= current_user.email %>
+      </div>
+    </div>
   </div>
-  <div class="profil-section">
-    <h2> Welcome <%= current_user.nickname %> </h2>
-    <h3>Profil</h3>
-    <div class="profil-info d-flex">
-      <p>Nickname: </p>
-      <%= current_user.nickname %>
-    </div>
-    <div class="profil-info d-flex">
-      <p>Email: </p>
-      <%= current_user.email %>
-    </div>
-    <h3>avatar</h3>
-    <div class="d-flex">
-      <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill %>
-    </div>
-  </div>
-  <%= link_to "Edit", edit_user_registration_path, class: "btn btn-warning rounded-pill" %>
 </div>
