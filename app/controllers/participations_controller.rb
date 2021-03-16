@@ -25,8 +25,8 @@ class ParticipationsController < ApplicationController
     @game = Game.find(params[:game_id])
     @participation = Participation.find(params[:id])
     @participation.update(
-      genre_id: params[:participation][:genre].to_i,
-      original_language_id: OriginalLanguage.find_by(english_name: params[:participation][:original_language]).id,
+      genre_id: find_genre_id, 
+      original_language_id: find_original_language_id,
       year: params[:participation][:year],
       runtime: params[:participation][:runtime],
       vote_average: params[:participation][:vote_average]
@@ -47,6 +47,9 @@ class ParticipationsController < ApplicationController
     #@original_languages = ["Français", "Anglais", "Allemand", "Russe", "Chinois", "Espagnol"]
     @genres=Genre.all
     @original_languages=OriginalLanguage.all.pluck(:english_name)
+    @runtimes = [60, 90, 105, 120, 150, 180, 240, 300]
+    @vote_averages = [*0 ... 10]
+    @years = [*1920 ... 2021]
     @game = Game.find(params[:game_id])
     @participation = Participation.find(params[:id])
     @fields = []
@@ -58,9 +61,26 @@ class ParticipationsController < ApplicationController
 
   end
 
+
+
+
 private
 
   def participation_params
     params.require(:participation).permit(:genre, :year, :original_language, :runtime, :vote_average)
   end
+
+  def find_genre_id
+    return if params[:participation][:genre].blank?
+  
+    params[:participation][:genre].to_i
+  end
+
+  def find_original_language_id
+    return if params[:participation][:original_language].blank?
+
+    OriginalLanguage.find_by(english_name: params[:participation][:original_language]).id
+  end
+
+
 end

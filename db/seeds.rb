@@ -9,10 +9,10 @@ puts "Cleaning database..."
 
 puts 'destroy users'
 User.destroy_all
-puts 'destroy movies'
-Movie.destroy_all
 puts 'destroy games'
 Game.destroy_all
+puts 'destroy movies'
+Movie.destroy_all
 puts 'destroy genres'
 Genre.destroy_all
 puts 'destroy languages'
