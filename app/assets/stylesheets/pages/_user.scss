@@ -1,0 +1,46 @@
+.user-section{
+  display: flex;
+  background-color: white;
+  margin: 64px 0;
+  border-radius: 20px;
+}
+
+.avatar-section{
+  background-color: $tpurple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30%;
+  padding: 100px 0;
+  border-radius: 15px 0 0 15px;
+
+  img{
+    border-radius: 50%;
+    // margin-bottom: 32px;
+  }
+  .profil-btn{
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 16px;
+  }
+}
+
+.profil-section{
+  color: $dark-tblue;
+  flex: 0 0 70%;
+  padding: 32px;
+  h2{
+    text-align: right;
+    margin-bottom: 48px;
+  }
+  .profil-info{
+    display: flex;
+    justify-content: space-between;
+    margin: 32px 16px;
+    border-bottom: 2px solid $tpurple;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
