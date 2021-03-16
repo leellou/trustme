@@ -49,10 +49,10 @@ OriginalLanguage.create(iso_639_1: "fr", english_name:"French")
 puts "Finished for languages !"
 
 puts "Creating providers..."
-Provider.create(tmdb_id:119, name:"Amazon")
-Provider.create(tmdb_id:337, name:"Disney plus")
-Provider.create(tmdb_id:8, name:"Netflix")
-Provider.create(tmdb_id:381, name:"Canal plus")
-Provider.create(tmdb_id:56, name:"OCS")
+Provider.create(tmdb_id:119, name:"Amazon",       logo:"https://image.tmdb.org/t/p/w92/68MNrwlkpF7WnmNPXLah69CR5cb.jpg")
+Provider.create(tmdb_id:337, name:"Disney plus",  logo:"https://image.tmdb.org/t/p/w92/dgPueyEdOwpQ10fjuhL2WYFQwQs.jpg")
+Provider.create(tmdb_id:8, name:"Netflix",        logo:"https://image.tmdb.org/t/p/w92/9A1JSVmSxsyaBK4SUFsYVqbAYfW.jpg")
+Provider.create(tmdb_id:381, name:"Canal plus",   logo:"https://image.tmdb.org/t/p/w92/po2bO7TCFCSJmK6gZ8FFj43lPEb.jpg")
+Provider.create(tmdb_id:56, name:"OCS",           logo:"https://image.tmdb.org/t/p/w92/8V7i31voizkPrOTilJgi9ttYmKL.jpg")
 
 puts "Finished for providers !"

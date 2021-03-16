@@ -48,6 +48,7 @@ class GamesController < ApplicationController
                           overview: moviesearch["overview"],
                           original_language_id: OriginalLanguage.find_by(iso_639_1: moviesearch["original_language"]).id,
                           vote_average: moviesearch["vote_average"],
+                          poster: moviesearch["poster_path"],
                           game_id: @game.id)
     # redirect to game#show
     redirect_to game_path(@game)
