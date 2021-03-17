@@ -9,6 +9,7 @@
 
 .info-partie{
   background-color: $tpurple;
+  margin-top: 100px;
 
   .info-partie-container {
     width: 900px;
@@ -163,4 +164,15 @@ h4{
 .provider-tag-selector:checked + label {
   box-shadow: 0 0 0 5px #7E73FF;
   transition: box-shadow 0.11s;
+}
+
+// ----------------- game button launch reveal -------------------------- >
+
+.game-btn{
+  display: flex;
+  justify-content: center;
+
+  .button{
+    margin: 12px 24px;
+  }
 }

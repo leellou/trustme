@@ -1,8 +1,8 @@
 const initRefresh = () => {
-   const refresh = document.querySelector('#refresh');
-  refresh.addEventListener('click', (event) => {
-    document.location.reload();
-  });
+  const infoPartie = document.querySelector(".info-partie");
+  if (infoPartie.length !== null){
+    setInterval('window.location.reload()', 12000);
+  }
 };
 
 export { initRefresh }
