@@ -82,6 +82,7 @@
   }
 }
 // ----------------- game card -------------------------- >
+
 .game-card{
   background-color: white;
   border-radius: 20px;
@@ -89,10 +90,27 @@
   margin: 32px 0;
   padding: 32px;
   display: flex;
+  opacity: 0;
+  animation: 0.5s linear 5s forwards fadein, 1s linear 5s forwards tada;
 }
 
 .game-card-info{
   padding: 32px;
+}
+
+// ----------------- game card apparition -------------------------- >
+
+@keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes tada {
+  0% { transform: scale(1); }
+  10%, 20% { transform: scale(0.9) rotate(-3deg); }
+  30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+  40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
 }
 
 // ----------------- participation card -------------------------- >
