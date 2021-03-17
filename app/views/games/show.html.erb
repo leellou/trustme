@@ -1,4 +1,3 @@
-
 <% if @game.movie %>
   <div class="reveal-banner">
     <div class="container">
@@ -33,26 +32,53 @@
 
 <div class="container">
   <div class="participants-list" data-controller="participants">
-    <ul class="participants">
+    <ul class="participants" id="participants">
       <% @participations.each do |participation| %>
-        <li><span> <%= participation.user.nickname %></span> à rejoint la partie !</li>
+        <% if participation.updated_at != participation.created_at %>
+          <li>
+            <span><%= participation.user.nickname %></span> à fini de jouer !
+            <i class="fas fa-check-circle"></i>
+          </li>
+        <% else %>
+          <li>
+            <span><%= participation.user.nickname %></span> à rejoint la partie !</li>
         <% end %>
+      <% end %>
         <li id="load">
           <p>En attente d'autres participants</p>
           <div class="bar"></div>
         </li>
     </ul>
+    <div class="game-btn d-flex">
       <% if @participation %>
-        <button class="btn btn-danger" id="refresh">Refresh Participants</button>
         <div class="button letters">
           <%= link_to "Launch", edit_game_participation_path(@game, @participation), class: "btn" %>
         </div>
+      <% end %>
+
+      <% if @game.participations.count >= 2 %>
         <div class="button letters">
          <%= link_to "Reveal", find_movie_game_path(@game), method: :post, class: "btn" %>
         </div>
       <% end %>
+    </div>
+
   </div>
 </div>
 
 <% end %>
 
+<div class="area" >
+            <ul class="shapes">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+</div >
