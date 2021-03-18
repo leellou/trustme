@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_144436) do
+ActiveRecord::Schema.define(version: 2021_03_18_152945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 2021_03_16_144436) do
     t.bigint "original_language_id"
     t.bigint "game_id"
     t.string "poster"
+    t.integer "tmdb_movie_id"
+    t.integer "tmdb_genre_id"
     t.index ["game_id"], name: "index_movies_on_game_id"
     t.index ["original_language_id"], name: "index_movies_on_original_language_id"
   end

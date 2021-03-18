@@ -2,7 +2,7 @@
   <div class="reveal-banner">
     <div class="container">
       <h2>Le film de la soirée sera...</h2>
-      <p>Le film va apparaitre dans quelques instant</p>
+      <p>Le film va apparaitre dans quelques instants</p>
     </div>
   </div>
   <div class="container">
@@ -20,6 +20,11 @@
       </div>
       <div class="game-card-info">
         <h3><%= @movie.title %></h3>
+        
+        <p><%= @movie_data[:runtime_movie] %> minutes</p>
+        <p><%= @movie_data[:genres_movie].join(" / ") %></p>
+        
+
         <p><%= "⭐" * @movie.vote_average %></p>
         <p id="movie-overview"><%= @movie.overview %></p>
       </div>
