@@ -18,10 +18,14 @@ class GamesController < ApplicationController
     @game.user = current_user
     @game.token = Devise.friendly_token.first(6)
     @game.save
-    params[:game][:provider_ids].each do |provider|
-      @game.game_providers.build(game_id: @game.id, provider_id: provider.to_i).save
+    if params[:game][:provider_ids].nil? 
+      redirect_to noprovider_games_path
+    else
+        params[:game][:provider_ids].each do |provider|
+        @game.game_providers.build(game_id: @game.id, provider_id: provider.to_i).save
+      end
+      redirect_to game_path(@game)
     end
-    redirect_to game_path(@game)
   end
 
   def find_movie
@@ -55,6 +59,7 @@ class GamesController < ApplicationController
       overview: moviesearch["overview"],
       original_language_id: OriginalLanguage.find_by(iso_639_1: moviesearch["original_language"]).id,
       vote_average: moviesearch["vote_average"],
+      poster: moviesearch["poster_path"],
       game_id: @game.id)
       # redirect to game#show
       redirect_to game_path(@game)
@@ -64,7 +69,8 @@ class GamesController < ApplicationController
   def nomovie
   end
   
-  
+  def noprovider
+  end
   
   
   

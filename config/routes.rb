@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :participations, only: [ :new, :create ]
   resources :games, only: [ :show, :new, :create ] do
     collection do
-      get :nomovie
+      get :nomovie 
+      get :noprovider
     end
     member do
       post 'find_movie'
