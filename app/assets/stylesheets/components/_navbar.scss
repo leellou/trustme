@@ -18,7 +18,12 @@
 .navbar-lewagon .navbar-collapse .navbar-nav .nav-item .nav-link{
   color: white;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-family: $t-title-font;
+}
+.navbar-lewagon .navbar-collapse .navbar-nav .nav-item .nav-link:hover{
+  color: #7E73FF;
 }
 
 .navbar-lewagon .navbar-collapse .navbar-nav .nav-item .sign-up, .sign-in{
@@ -34,4 +39,8 @@
 .navbar-lewagon .navbar-collapse .navbar-nav .nav-item .sign-in{
   padding: 4px 24px;
   background-color: $tred;
+}
+
+#welcome{
+  color: $tred;
 }
