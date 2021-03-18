@@ -7,7 +7,7 @@ class GamesController < ApplicationController
     @participations = Participation.where(game_id: @game)
     @participation = @participations.find_by(user_id: current_user)
     @movie = @game.movie
-    
+
     if @movie.present?
       @movie_data = Moviedb::DatasMovie.search({tmdb_movie_id: @movie.tmdb_movie_id})
     end
@@ -22,11 +22,11 @@ class GamesController < ApplicationController
     @game.user = current_user
     @game.token = Devise.friendly_token.first(6)
     @game.save
-    if params[:game][:provider_ids].nil? 
+    if params[:game][:provider_ids].nil?
       redirect_to noprovider_games_path
     else
-        params[:game][:provider_ids].each do |provider|
-        @game.game_providers.build(game_id: @game.id, provider_id: provider.to_i).save
+      params[:game][:provider_ids].each do |provider|
+        @game.game_providers.create(game_id: @game.id, provider_id: provider.to_i)
       end
       redirect_to game_path(@game)
     end
@@ -57,17 +57,17 @@ class GamesController < ApplicationController
     if moviesearch.nil?
       redirect_to nomovie_games_path
       # puts sur la home/nomovie "Ooouuupppsss, pas de film avec vos critères de fous ! Relance une party !"
-    
+
     else
-        
-      
+
+
       # movie.create
       movie = Movie.create!(title: moviesearch["title"],
       overview: moviesearch["overview"],
       original_language_id: OriginalLanguage.find_by(iso_639_1: moviesearch["original_language"]).id,
       vote_average: moviesearch["vote_average"],
       poster: moviesearch["poster_path"],
-      game_id: @game.id, 
+      game_id: @game.id,
       tmdb_movie_id: moviesearch["id"])
       # redirect to game#show
       redirect_to game_path(@game)
@@ -76,7 +76,7 @@ class GamesController < ApplicationController
 
   def nomovie
   end
-  
+
   def noprovider
   end
 

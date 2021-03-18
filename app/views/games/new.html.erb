@@ -15,7 +15,9 @@
       <%= f.association :providers, as: :check_boxes, include_hidden: false, legend_tag: false,
                         input_html: { class: "provider-tag-selector" },
                         item_wrapper_class: 'provider-tag-item',
-                        collection: Provider.all.map {|i| "#{image_tag(i.logo)}".html_safe } %>
+                        collection: Provider.all,
+                        label_method: lambda { |provider| "#{image_tag(provider.logo)}".html_safe },
+                        value_method: :id %>
       </div>
       <h4> Choisir les critères de la partie: </h4>
       <div class="tag-criteres">
