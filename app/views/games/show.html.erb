@@ -62,13 +62,13 @@
         <div class="button letters">
           <%= link_to "Launch", edit_game_participation_path(@game, @participation), class: "btn" %>
         </div>
+        <% if @participations.count >=2 %>
+          <div class="button letters">
+            <%= link_to "Reveal", find_movie_game_path(@game), method: :post, class: "btn" %>
+          </div>
+        <% end %>
       <% end %>
 
-      <% if @game.participations.count >= 2 %>
-        <div class="button letters">
-         <%= link_to "Reveal", find_movie_game_path(@game), method: :post, class: "btn" %>
-        </div>
-      <% end %>
     </div>
 
   </div>
