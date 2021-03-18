@@ -37,6 +37,22 @@ module Moviedb
       return movies["results"].sample(1).first
     end
   end
+
+  class DatasMovie
+    def self.search(options = {})
+      # Definir l'url
+      url = "https://api.themoviedb.org/3/movie/#{options[:tmdb_movie_id]}?api_key=#{ENV['MOVIEDBAPIKEY']}&language=fr"
+      # Call a l'API pour récupérer le JSON
+      details_movie = open(url).read
+      # Parse du JSON
+      details = JSON.parse(details_movie)
+      # Recup les infos dont on a besoin
+      
+      genres_movie = details["genres"].map { |genre| genre["name"] }
+      runtime_movie = details["runtime"]
+      { genres_movie: genres_movie, runtime_movie: runtime_movie }
+    end
+  end  
 end
 
 # url_test = 'https://api.themoviedb.org/3/discover/movie?api_key=10148f31e8f64b64e290f2ba7fe369b2&language=fr&include_adult=false&include_video=false&year=2010%7C2011%7C2012%7C2013%7C2014%7C2015&vote_average.gte=6&with_genres=28%7C878&with_runtime.gte=60&with_original_language=fr&with_watch_providers=8%7C337%7C119
