@@ -28,13 +28,28 @@ User.create(nickname:"jeanfi",  email:"contact@jeanfi.fr", password:"trustme")
 puts "Finished for users !"
 
 puts "Creating genres..."
-Genre.create(tmdb_id:18, name:"Drama")
 Genre.create(tmdb_id:28, name:"Action")
-Genre.create(tmdb_id:53, name:"Thriller")
-Genre.create(tmdb_id:80, name:"Crime")
-Genre.create(tmdb_id:10752, name:"War")
-Genre.create(tmdb_id:878, name:"Science Fiction")
+Genre.create(tmdb_id:12, name:"Adventure")
 Genre.create(tmdb_id:16, name:"Animation")
+Genre.create(tmdb_id:35, name:"Comedy")
+Genre.create(tmdb_id:80, name:"Crime")
+Genre.create(tmdb_id:99, name:"Documentary")
+Genre.create(tmdb_id:18, name:"Drama")
+Genre.create(tmdb_id:10751, name:"Family")
+Genre.create(tmdb_id:14, name:"Fantasy")
+Genre.create(tmdb_id:36, name:"History")
+Genre.create(tmdb_id:27, name:"Horror")
+Genre.create(tmdb_id:10402, name:"Music")
+Genre.create(tmdb_id:9648, name:"Mystery")
+Genre.create(tmdb_id:10749, name:"Romance")
+Genre.create(tmdb_id:878, name:"Science Fiction")
+Genre.create(tmdb_id:10770, name:"TV Movie")
+Genre.create(tmdb_id:53, name:"Thriller")
+Genre.create(tmdb_id:10752, name:"War")
+Genre.create(tmdb_id:37, name:"Western")
+
+
+
 
 puts "Finished for genres !"
 
@@ -45,6 +60,10 @@ OriginalLanguage.create(iso_639_1: "it", english_name:"Italian")
 OriginalLanguage.create(iso_639_1: "es", english_name:"Spanish")
 OriginalLanguage.create(iso_639_1: "en", english_name:"English")
 OriginalLanguage.create(iso_639_1: "fr", english_name:"French")
+OriginalLanguage.create(iso_639_1: "ru", english_name:"Russian")
+OriginalLanguage.create(iso_639_1: "ja", english_name:"Japanese")
+OriginalLanguage.create(iso_639_1: "ko", english_name:"Korean")
+OriginalLanguage.create(iso_639_1: "zh", english_name:"Mandarin")
 
 puts "Finished for languages !"
 

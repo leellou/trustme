@@ -48,7 +48,7 @@ class GamesController < ApplicationController
                                       watch_providers: @watch_providers_choices
                                     })
 
-    
+
     #moviesearch is nil ?
     if moviesearch.nil?
       redirect_to nomovie_games_path
@@ -65,15 +65,13 @@ class GamesController < ApplicationController
       redirect_to game_path(@game)
     end
   end
-  
+
   def nomovie
   end
   
   def noprovider
   end
-  
-  
-  
+
   private
 
   def game_params
