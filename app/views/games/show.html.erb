@@ -63,19 +63,19 @@
         </li>
     </ul>
     <div class="game-btn d-flex">
-      <% if @participation %>
+      <% if @participations.count { |participation| participation.updated_at != participation.created_at } >= 2 %>
         <div class="button letters">
-          <%= link_to "Launch", edit_game_participation_path(@game, @participation), class: "btn" %>
+            <%= link_to "Reveal", find_movie_game_path(@game), method: :post, class: "btn" %>
         </div>
       <% end %>
-
-      <% if @game.participations.count >= 2 %>
-        <div class="button letters">
-         <%= link_to "Reveal", find_movie_game_path(@game), method: :post, class: "btn" %>
-        </div>
+      <% if @participation %>
+        <% if @participation.updated_at == @participation.created_at %>
+          <div class="button letters">
+            <%= link_to "Launch", edit_game_participation_path(@game, @participation), class: "btn" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
-
   </div>
 </div>
 
