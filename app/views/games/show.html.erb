@@ -20,13 +20,16 @@
       </div>
       <div class="game-card-info">
         <h3><%= @movie.title %></h3>
-        
+
         <p><%= @movie_data[:runtime_movie] %> minutes</p>
         <p><%= @movie_data[:genres_movie].join(" / ") %></p>
-        
+
 
         <p><%= "⭐" * @movie.vote_average %></p>
         <p id="movie-overview"><%= @movie.overview %></p>
+        <div class="button letters">
+          <%= link_to "Voir le film", @movie_data[:homepage_movie], class: "btn" %>
+        </div>
       </div>
     </div>
   </div>

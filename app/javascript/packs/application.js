@@ -34,6 +34,5 @@ document.addEventListener('turbolinks:load', () => {
   initRefresh();
 });
 
-import "controllers";
 
 
