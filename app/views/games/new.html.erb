@@ -1,7 +1,7 @@
 <div class="game-new-banner">
   <div class="container">
-    <h2>Creer ta partie</h2>
-    <p>Selectionne les critères que tu veux pour ta partie,  ou lance en aléatoire!</p>
+    <h2>Create your game</h2>
+    <p>Select the categories you want for this game! </p>
   </div>
 </div>
 
@@ -9,7 +9,7 @@
 <div class="container game-container">
 
     <%= simple_form_for @game do |f| %>
-      <h4> Choisir les Plateformes de streaming disponible:</h4>
+      <h4>Choose your streaming platform: </h4>
       <div class="tag-providers">
 
       <%= f.association :providers, as: :check_boxes, include_hidden: false, legend_tag: false,
@@ -19,7 +19,7 @@
                         label_method: lambda { |provider| "#{image_tag(provider.logo)}".html_safe },
                         value_method: :id %>
       </div>
-      <h4> Choisir les critères de la partie: </h4>
+      <h4>Choose the game's category: </h4>
       <div class="tag-criteres">
       <%= f.input :genre, label: "genre",
                   input_html: { class: "tag-selector" },
