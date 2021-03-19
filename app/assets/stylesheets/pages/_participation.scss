@@ -149,6 +149,8 @@ input::placeholder{
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 2px solid rgba(10, 7, 73, 0.5);
+  padding-bottom: 24px;
 
   .form-check-label{
     display: flex;

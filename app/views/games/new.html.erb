@@ -1,7 +1,7 @@
 <div class="game-new-banner">
   <div class="container">
-    <h2>Create your game</h2>
-    <p>Select the categories you want for this game! </p>
+    <h2>Creer votre partie</h2>
+    <p>Selectionne les critères que tu veux pour ta partie! </p>
   </div>
 </div>
 
@@ -9,7 +9,7 @@
 <div class="container game-container">
 
     <%= simple_form_for @game do |f| %>
-      <h4>Choose your streaming platform: </h4>
+      <h4>Quelles sont tes plateformes de streaming? </h4>
       <div class="tag-providers">
 
       <%= f.association :providers, as: :check_boxes, include_hidden: false, legend_tag: false,
@@ -19,26 +19,26 @@
                         label_method: lambda { |provider| "#{image_tag(provider.logo)}".html_safe },
                         value_method: :id %>
       </div>
-      <h4>Choose the game's category: </h4>
+      <h4>Choisis les critères: </h4>
       <div class="tag-criteres">
-      <%= f.input :genre, label: "genre",
+      <%= f.input :genre, label: "Genre",
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
-      <%= f.input :year, label: "year",
+      <%= f.input :year, label: "Année",
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
-      <%= f.input :original_language, label: "original language",
+      <%= f.input :original_language, label: "Langue d'origine",
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
-      <%= f.input :runtime, label: "runtime",
+      <%= f.input :runtime, label: "Durée",
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
-      <%= f.input :vote_average, label: "vote average",
+      <%= f.input :vote_average, label: "Note moyenne",
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
       </div>
       <div class="button letters">
-        <%= f.button :submit, class: "btn" %>
+        <%= f.button :submit, "Creer la partie", class: "btn" %>
       </div>
   <% end %>
 </div>

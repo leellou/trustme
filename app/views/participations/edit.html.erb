@@ -14,7 +14,7 @@
 <div class="participation-edit-banner">
   <div class="container">
     <h2>A toi de jouer !</h2>
-    <p>Choisi le critères que tu préfere entre les deux propositions...</p>
+    <p>Pour chaque catégorie, choisis le critère que tu préfère entre les deux propositions...</p>
   </div>
 </div>
 
@@ -24,10 +24,10 @@
       <%= simple_form_for [@game, @participation] do |f| %>
         <% @fields.each do |field| %>
             <% tri = instance_variable_get('@'+field+'s') %>
-            <%= f.input field.to_sym, as: :radio_buttons, label: field.titleize.upcase, collection: tri.sample(2) %>
+            <%= f.input field.to_sym, as: :radio_buttons, label: field.titleize.upcase, legend_tag: false, collection: tri.sample(2) %>
         <% end %>
         <div class="button letters">
-          <%= f.button :submit, class: "btn" %>
+          <%= f.button :submit, 'valider mes choix', class: "btn" %>
         </div>
       <% end %>
     </div>
