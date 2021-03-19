@@ -68,7 +68,7 @@
     <div class="game-btn d-flex">
       <% if @participations.count { |participation| participation.updated_at != participation.created_at } >= 2 %>
         <div class="button letters">
-            <%= link_to "Reveal", find_movie_game_path(@game), method: :post, class: "btn" %>
+            <%= link_to "Découvrir", find_movie_game_path(@game), method: :post, class: "btn" %>
         </div>
       <% end %>
       <% if @participation %>
