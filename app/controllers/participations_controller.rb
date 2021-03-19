@@ -25,7 +25,7 @@ class ParticipationsController < ApplicationController
     @game = Game.find(params[:game_id])
     @participation = Participation.find(params[:id])
     @participation.update(
-      genre_id: find_genre_id, 
+      genre_id: find_genre_id,
       original_language_id: find_original_language_id,
       year: params[:participation][:year],
       runtime: params[:participation][:runtime],
@@ -72,7 +72,7 @@ private
 
   def find_genre_id
     return if params[:participation][:genre].blank?
-  
+
     params[:participation][:genre].to_i
   end
 
